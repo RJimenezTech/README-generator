@@ -1,7 +1,11 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const {generateMarkdown} = require('./utils/generateMarkdown.js');
+const {
+    renderLicenseBadge,
+    renderLicenseLink,
+    renderLicenseSection,
+    generateMarkdown} = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -81,8 +85,13 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        message: 'Select a license type:',
-        choices: ['MIT','Apache','Public Domain','GPL','JRL']
+        message: 'Select which license makes sense for you:',
+        choices: [
+            'MIT License',
+            'PDDL - Public Domain Dedication License',
+            'GNU - General Use License',
+            'I do not want a license.'
+        ]
     },
     {
         type: 'input',
@@ -131,15 +140,15 @@ const init = () => {
     return inquirer
         .prompt(questions)
         .then(answers => {
-            console.log(answers);
+            // console.log(answers);
             return answers;
         })
         .then(data => {
-            console.log(data);
+            // console.log(data);
             return generateMarkdown(data);
         })  
         .then(pageMarkdown => {
-            console.log(pageMarkdown);
+            // console.log(pageMarkdown);
             return writeToFile(pageMarkdown);
         })
         .catch(err => {

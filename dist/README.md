@@ -3,21 +3,28 @@
 
   ## Description
   
-  describe here
+  show weather
   
   ## Table of Contents
      
   - [Installation](#installation)
   - [Usage](#usage)
+  - [License](#license)
   
   ## Installation
   
-  install here
+  just do it
   
   ## Usage
   
-  usage here
+  use it
 
+  
+  # License 
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  
   ---
   
   ## Badges
@@ -26,8 +33,8 @@
     
   ## How to Contribute
   
-  contribute here
+  email me 
   
   ## Tests
   
-  test here
+  test it
