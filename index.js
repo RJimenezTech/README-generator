@@ -111,9 +111,9 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-const writeToFile = (fileName, data) => {
+const writeToFile = data => {
     return new Promise((resolve,reject) => {
-        fs.writeFile(fileName, data, err => {
+        fs.writeFile('./dist/README.md', data, err => {
             if (err) {
                 reject(err);
                 return;
@@ -134,13 +134,17 @@ const init = () => {
             console.log(answers);
             return answers;
         })
-        .then(generateMarkdown(data));
-        // .then(pageMarkdown => {
-        //     return writeToFile('./dist/README.md', pageMarkdown);
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        // });
+        .then(data => {
+            console.log(data);
+            return generateMarkdown(data);
+        })  
+        .then(pageMarkdown => {
+            console.log(pageMarkdown);
+            return writeToFile(pageMarkdown);
+        })
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 // Function call to initialize app
