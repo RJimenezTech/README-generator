@@ -34,7 +34,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   return `
-  # License 
+  ## License 
 
   ${renderLicenseBadge(license)}${renderLicenseLink(license)}
   `;
@@ -54,6 +54,10 @@ const generateMarkdown = data => {
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
+  - [Badges](#badges)
+  - [Contribute](#contribute)
+  - [Tests](#tests)
+  - [Questions](#questions)
   
   ## Installation
   
@@ -63,7 +67,6 @@ const generateMarkdown = data => {
   
   ${data.usageInfo}
   ${renderLicenseSection(data.license)}
-  ---
   
   ## Badges
   
@@ -76,6 +79,11 @@ const generateMarkdown = data => {
   ## Tests
   
   ${data.testInstructions}
+
+  ## Questions
+  
+  Find me at [${data.github}](https://github.com/${data.github}) on GitHub for more information.
+  Email me directly at ${data.email}.
 `
 };
 
