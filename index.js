@@ -132,6 +132,7 @@ const writeToFile = data => {
                 message: 'File created!'
             });
         });
+        console.log("File was created!");
     });
 };
 

@@ -3,11 +3,11 @@
 function renderLicenseBadge(license) {
   switch (license) {
     case 'MIT License':
-      return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]';
+      return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
     case 'PDDL - Public Domain Dedication License':
-      return '[![License: ODbL](https://img.shields.io/badge/License-PDDL-brightgreen.svg)]';
+      return '![License: ODbL](https://img.shields.io/badge/License-PDDL-brightgreen.svg)';
     case 'GNU - General Use License':
-      return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]';
+      return '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
     case 'I do not want a license.':
     default: 
       return ''
@@ -36,14 +36,14 @@ function renderLicenseSection(license) {
   return `
   ## License 
 
-  ${renderLicenseBadge(license)}${renderLicenseLink(license)}
+  This project is licensed under the [${license}]${renderLicenseLink(license)}
   `;
 };
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = data => {
-  return `
-  # ${data.projectName}
+  return `${renderLicenseBadge(data.license)}
+  # ${data.projectName} 
 
   ## Description
   
@@ -68,11 +68,7 @@ const generateMarkdown = data => {
   ${data.usageInfo}
   ${renderLicenseSection(data.license)}
   
-  ## Badges
-  
-  ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-    
-  ## How to Contribute
+  ## Contribute
   
   ${data.contribution}
   
